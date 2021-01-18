@@ -41,8 +41,8 @@ const validAuth = `(?P<key>\w.+):(?P<value>\w.+)$`
 //implements the default HTTPClient.
 //more info can be found: https://api-docs.amp.cisco.com/api_resources?api_host=api.eu.amp.cisco.com&api_version=v1
 func NewAMP( auth string) *AMP {
-	patern := regexp.MustCompile(validAuth)
-	if !patern.MatchString(auth){
+	pattern := regexp.MustCompile(validAuth)
+	if !pattern.MatchString(auth){
 		logrus.WithFields(logrus.Fields{
 			"Error": "not correct auth patter.",
 			"Info:":"make sure that you have provided zhe auth in following format 'client_id:api_key' ",
