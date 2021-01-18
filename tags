@@ -4,3 +4,9 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+AMPSDK_PATH	makefile	/^AMPSDK_PATH=$(GOPATH\/src\/github.com\/abdelmmu\/${APP})$/;"	m
+APP	makefile	/^APP?=amp$/;"	m
+COMMIT_SHA	makefile	/^COMMIT_SHA=$(shell git rev-parse --short HEAD)$/;"	m
+GO111MODULES	makefile	/^GO111MODULES=auto$/;"	m
+REGISTRY	makefile	/^REGISTRY?=abdelmmu\/images$/;"	m
+html	makefile	/^	go tool cover -html=${APP}.out -o ${APP}_test_report.html $/;"	m

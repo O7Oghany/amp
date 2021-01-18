@@ -1,13 +1,12 @@
 package base
 
 import (
-	"fmt"
 	"net/http"
 	"testing"
 )
 
 func TestNewAMP(t *testing.T) {
-	nilAmp:= NewAMP("tetet")
+	nilAmp := NewAMP("tetet")
 	if nilAmp != nil {
 		t.Errorf("error: %v", nilAmp)
 	}
@@ -21,36 +20,41 @@ func TestNewAMP(t *testing.T) {
 
 func TestAMP_Do(t *testing.T) {
 	//not checking for "client_id:api_key" because it's already checked in TestNewAMP Function
-	validmp:= NewAMP("client_id:api_key")
-	//ignoring the Error from the new request
-	//test will return unauthorized
-	req, _ := http.NewRequest("GET", validmp.BaseURL+"/computers", nil)
-	resp, err := validmp.Do(req)
-	if err != nil  {
-		t.Errorf("error: %v", err)
-		fmt.Println(resp)
+	validmp := NewAMP("client_id:api_key")
+
+	//intialize fake AMP without AUTH
+	invalidAMP := &AMP{}
+	request, _ := http.NewRequest("GET", "", nil)
+	_, err := validmp.Do(request)
+	if err == nil {
+		t.Errorf("expected nil, got %v", err)
 	}
-	//check that the validation was incorrect
-	if resp.StatusCode != 401{
-		t.Errorf("expected 401 and got : %v", resp.StatusCode)
+
+	//ignoring the Error from the new request
+	invalidReq, _ := http.NewRequest("test", invalidAMP.BaseURL+"/computers", nil)
+	_, err = validmp.Do(invalidReq)
+	if err == nil {
+		t.Errorf("error: %v", err)
+	} else {
+		t.Logf("success and got err: %v", err)
 	}
 }
 
 func TestAMP_GenericReq(t *testing.T) {
 	//not checking for "client_id:api_key" because it's already checked in TestNewAMP Function
-	validmp:= NewAMP("client_id:api_key")
+	validmp := NewAMP("client_id:api_key")
 	//giving non valid resource
 	_, err := validmp.GenericReq("GET", "computers")
-	if err == nil{
+	if err == nil {
 		t.Errorf("expected error but got nil")
-	}else {
+	} else {
 		t.Logf("success and got Error: %v", err)
 	}
 	//giving valid resource but not valid auth
-	res, err :=  validmp.GenericReq("GET", "/computers")
-	if err != nil{
+	res, err := validmp.GenericReq("GET", "/computers")
+	if err != nil {
 		t.Errorf("expected error but got nil %v", err)
-	}else {
+	} else {
 		body := string(res)
 		t.Logf("resp: %v", body)
 	}
