@@ -20,13 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e50c491a-8fb2-4b65-808d-3c9c0485c652" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/amp.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base/amp.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/computer/computer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base/amp_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/amp.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/amp.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +41,9 @@
   <component name="GOROOT" path="C:\Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1n3aD8qR5HOnk169jXPtnvCXTqc" />
   <component name="ProjectLevelVcsManager">
@@ -62,9 +63,63 @@
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Go Test.TestNewAMP in github.com/abdelmmu/amp/base">
+    <configuration name="TestAMP_Do in github.com/abdelmmu/amp/base" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="amp" />
+      <working_directory value="$PROJECT_DIR$/base" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/abdelmmu/amp/base" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestAMP_Do\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestAMP_GenericReq in github.com/abdelmmu/amp/base" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="amp" />
+      <working_directory value="$PROJECT_DIR$/base" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/abdelmmu/amp/base" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestAMP_GenericReq\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestNewAMP in github.com/abdelmmu/amp/base" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="amp" />
+      <working_directory value="$PROJECT_DIR$/base" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/abdelmmu/amp/base" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestNewAMP\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go test github.com/abdelmmu/amp/base" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="amp" />
+      <working_directory value="$PROJECT_DIR$/base" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/abdelmmu/amp/base" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestNewAMP in github.com/abdelmmu/amp/base" />
+        <item itemvalue="Go Test.TestAMP_Do in github.com/abdelmmu/amp/base" />
+        <item itemvalue="Go Test.TestAMP_GenericReq in github.com/abdelmmu/amp/base" />
+        <item itemvalue="Go Test.go test github.com/abdelmmu/amp/base" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -85,11 +140,34 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
   <component name="WindowStateProjectService">
+    <state x="752" y="353" key="#Go_Modules" timestamp="1610966529268">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="752" y="353" key="#Go_Modules/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610966529268" />
     <state x="859" y="385" key="#Vim_Emulation" timestamp="1610630137492">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="859" y="385" key="#Vim_Emulation/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610630137492" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1610984404529">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610984404529" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1610984404528">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610984404528" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1610984404528">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610984404528" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1610984404528">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610984404528" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1610628704845">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
