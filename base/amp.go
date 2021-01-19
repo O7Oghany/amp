@@ -95,7 +95,7 @@ func (a *AMP) Do(r *http.Request) (*http.Response, error) {
 //
 //
 //returning byte, all sub request can implement encoder
-func (a *AMP) GenericReq(method, res string) ([]byte, error) {
+func (a *AMP) GenericReq(method, res string) ( int, []byte, error) {
 	url := a.BaseURL + res
 	var resource = regexp.MustCompile(validResource)
 	if !resource.MatchString(res) {
@@ -105,7 +105,7 @@ func (a *AMP) GenericReq(method, res string) ([]byte, error) {
 			"Error": "not correct resource patter.",
 			"Info:": "make sure that you have '/' for the resource. check https://api-docs.amp.cisco.com/api_resources?api_host=api.eu.amp.cisco.com&api_version=v1",
 		}).WithError(err)
-		return nil, err
+		return 0,nil, err
 	}
 	req, err := http.NewRequest(method, url, nil)
 	if err != nil {
@@ -113,14 +113,14 @@ func (a *AMP) GenericReq(method, res string) ([]byte, error) {
 			"Error": err,
 			"Url":   url,
 		}).Errorf("could not invoke the http request check the Error Message")
-		return nil, err
+		return 0,nil, err
 	}
 	r, err := a.Do(req)
 	if err != nil {
 		logrus.WithFields(logrus.Fields{
 			"Error": err,
 		}).Error("could not invoke the http request check the Error Message")
-		return nil, err
+		return r.StatusCode,nil, err
 	}
 	defer r.Body.Close()
 
@@ -129,8 +129,8 @@ func (a *AMP) GenericReq(method, res string) ([]byte, error) {
 		logrus.WithFields(logrus.Fields{
 			"Error": err,
 		}).Error("could not read the http response")
-		return nil, err
+		return r.StatusCode,nil, err
 	}
-	return body, nil
+	return r.StatusCode,body, nil
 
 }

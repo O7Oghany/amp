@@ -33,9 +33,16 @@ test:
 .PHONY: test_report
 ##test_report: generat html report for test cover
 test_report:
-	go test -cover ./... -coverprofile=${APP}.out
-	go tool cover -html=${APP}.out -o ${APP}_test_report.html 
-	
+	go test -cover ./... -coverprofile=${APP}.out -covermode count
+	go tool cover -html=${APP}.out -o ${APP}_test_report.html
+
+.PHONY: test_bench
+##test_bench: generat benchmark test
+test_bench:
+	@echo "starting Test Phase "
+	go test -bench ./... -benchtime 10s
+
+
 .PHONY: run
 ##run: will run go run --race
 run:
@@ -70,4 +77,5 @@ docker-push: check-environment docker-build
 help:
 	@echo "Usage: \n"
 	@sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
+
 

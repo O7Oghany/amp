@@ -1,0 +1,49 @@
+{
+  "version": "v1.2.0",
+  "metadata": {
+    "links": {
+      "self": "https://api.eu.amp.cisco.com/v1/audit_logs",
+      "next": "https://api.eu.amp.cisco.com/v1/audit_logs?offset=500"
+    },
+    "results": {
+      "total": 3214,
+      "current_item_count": 500,
+      "index": 0,
+      "items_per_page": 500
+    }
+  },
+  "data": [
+    {
+      "event": "destroy",
+      "audit_log_type": "Group",
+      "audit_log_id": "d3dfd982-6542-4a5f-8d39-4131fc3b0a21",
+      "audit_log_user": "16db5cf986eec6f44422",
+      "created_at": "2020-02-18T09:17:37Z",
+      "old_attributes": {
+        "name": "UBVHPWrE",
+        "active": true,
+        "default": false,
+        "ancestry": null
+      },
+      "new_attributes": {
+        "name": null,
+        "active": null,
+        "default": null,
+        "ancestry": null
+      }
+    },
+    {
+      "event": "create",
+      "audit_log_type": "Group",
+      "audit_log_id": "b72fd5c0-1ec8-4b7a-b5aa-a500e64635f4",
+      "audit_log_user": "16db5cf986eec6f44422",
+      "created_at": "2020-02-18T09:17:36Z",
+      "old_attributes": {
+        "name": null
+      },
+      "new_attributes": {
+        "name": "aOnRlCTc"
+      }
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>base: Go Coverage Report</title>
+		<title>auditLogs: Go Coverage Report</title>
 		<style>
 			body {
 				background: black;
@@ -55,21 +55,93 @@
 			<div id="nav">
 				<select id="files">
 				
-				<option value="file0">github.com/abdelmmu/amp/base/amp.go (82.1%)</option>
+				<option value="file0">github.com/abdelmmu/amp/auditLogs/auditLogs.go (55.6%)</option>
+				
+				<option value="file1">github.com/abdelmmu/amp/base/amp.go (80.0%)</option>
 				
 				</select>
 			</div>
 			<div id="legend">
 				<span>not tracked</span>
 			
-				<span class="cov0">not covered</span>
-				<span class="cov8">covered</span>
+				<span class="cov0">no coverage</span>
+				<span class="cov1">low coverage</span>
+				<span class="cov2">*</span>
+				<span class="cov3">*</span>
+				<span class="cov4">*</span>
+				<span class="cov5">*</span>
+				<span class="cov6">*</span>
+				<span class="cov7">*</span>
+				<span class="cov8">*</span>
+				<span class="cov9">*</span>
+				<span class="cov10">high coverage</span>
 			
 			</div>
 		</div>
 		<div id="content">
 		
-		<pre class="file" id="file0" style="display: none">package base
+		<pre class="file" id="file0" style="display: none">package auditLogs
+
+import (
+        "encoding/json"
+        "errors"
+        "fmt"
+        "github.com/abdelmmu/amp/base"
+        "github.com/abdelmmu/amp/model"
+        "github.com/sirupsen/logrus"
+)
+
+type AuditLogs struct {
+        Proxy base.AMP
+        Model model.AuditLogs
+}
+
+func NewAuditLogs(auth string) *AuditLogs<span class="cov10" title="4">{
+        amp := base.NewAMP(auth)
+        if amp == nil </span><span class="cov5" title="2">{
+                return nil
+        }</span>
+        <span class="cov5" title="2">return &amp;AuditLogs{
+                Proxy: *amp,
+                Model: model.AuditLogs{},
+        }</span>
+}
+//TODO need to implent the
+func (a *AuditLogs) GetLogs() (*model.ListAuditLogs, error)<span class="cov1" title="1">{
+
+        statusCode, body, err := a.Proxy.GenericReq("GET","/audit_logs")
+        if err != nil</span><span class="cov0" title="0">{
+                return nil,err
+        }</span>
+        <span class="cov1" title="1">if statusCode != 200 </span><span class="cov1" title="1">{
+                err = errors.New("unauthorized")
+                logrus.WithFields(logrus.Fields{
+                        "error": "check the Auth and the API",
+                }).WithError(err).Errorf("expected 200 ok, got %v", statusCode)
+                return nil, err
+        }</span>
+
+/*        jsonFile, err := os.Open("AuditLogs.json")
+        if err != nil{
+                return nil, err
+        }
+        defer jsonFile.Close()
+        body, _ := ioutil.ReadAll(jsonFile)
+*/
+
+        //data := &amp;model.BaseMoodle{}
+        <span class="cov0" title="0">data := a.Model.Data
+        err = json.Unmarshal(body, &amp;data)
+        if err != nil</span><span class="cov0" title="0">{
+                logrus.Errorf("body %v", string(body))
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">fmt.Println(a.Model.Data)
+        
+        return &amp;data, nil</span>
+}</pre>
+		
+		<pre class="file" id="file1" style="display: none">package base
 
 import (
         "encoding/base64"
@@ -113,16 +185,16 @@ const validAuth = `(?P&lt;key&gt;\w.+):(?P&lt;value&gt;\w.+)$`
 //
 //implements the default HTTPClient.
 //more info can be found: https://api-docs.amp.cisco.com/api_resources?api_host=api.eu.amp.cisco.com&amp;api_version=v1
-func NewAMP(auth string) *AMP <span class="cov8" title="1">{
+func NewAMP(auth string) *AMP <span class="cov10" title="4">{
         pattern := regexp.MustCompile(validAuth)
-        if !pattern.MatchString(auth) </span><span class="cov8" title="1">{
+        if !pattern.MatchString(auth) </span><span class="cov1" title="1">{
                 logrus.WithFields(logrus.Fields{
                         "Error": "not correct auth patter.",
                         "Info:": "make sure that you have provided zhe auth in following format 'client_id:api_key' ",
                 }).Errorf("please check the auth Format. Provide both in format 'client_id:api_key' ")
                 return nil
         }</span>
-        <span class="cov8" title="1">return &amp;AMP{
+        <span class="cov8" title="3">return &amp;AMP{
                 BaseURL: AMPBaseURL,
                 Auth:    auth,
                 Client:  &amp;http.Client{},
@@ -135,28 +207,30 @@ func NewAMP(auth string) *AMP <span class="cov8" title="1">{
 //
 //
 //Do will implement basic auth as well as the required headers for the API calls
-func (a *AMP) Do(r *http.Request) (*http.Response, error) <span class="cov8" title="1">{
+func (a *AMP) Do(r *http.Request) (*http.Response, error) <span class="cov8" title="3">{
         baseURL := *r.URL
         newreq, err := http.NewRequest(r.Method, baseURL.String(), r.Body)
         if err != nil </span><span class="cov0" title="0">{
                 logrus.WithFields(logrus.Fields{
                         "Error": err,
                 }).Error("could not invoke the http request check the Error Message")
+                return nil, err
         }</span>
-        <span class="cov8" title="1">auth := fmt.Sprintf("Basic %v", base64.StdEncoding.EncodeToString([]byte(a.Auth)))
+
+        <span class="cov8" title="3">auth := fmt.Sprintf("Basic %v", base64.StdEncoding.EncodeToString([]byte(a.Auth)))
         newreq.Header.Set("Authorization", auth)
         newreq.Header.Set("Accept", "application/json")
         newreq.Header.Set("content-type", "application/json")
 
         res, err := a.Client.Do(newreq)
-        if err != nil </span><span class="cov8" title="1">{
+        if err != nil </span><span class="cov5" title="2">{
                 logrus.WithFields(logrus.Fields{
                         "Error": err,
                 }).Error("could not Do the http request check the Error Message")
 
                 return nil, err
         }</span>
-        <span class="cov8" title="1">return res, nil</span>
+        <span class="cov1" title="1">return res, nil</span>
 }
 
 //GenericReq acts as generic HTTP request method
@@ -164,43 +238,43 @@ func (a *AMP) Do(r *http.Request) (*http.Response, error) <span class="cov8" tit
 //
 //
 //returning byte, all sub request can implement encoder
-func (a *AMP) GenericReq(method, res string) ([]byte, error) <span class="cov8" title="1">{
+func (a *AMP) GenericReq(method, res string) ( int, []byte, error) <span class="cov5" title="2">{
         url := a.BaseURL + res
         var resource = regexp.MustCompile(validResource)
-        if !resource.MatchString(res) </span><span class="cov8" title="1">{
+        if !resource.MatchString(res) </span><span class="cov1" title="1">{
                 err := errors.New("not correct resource patter")
                 logrus.WithError(err)
                 logrus.WithFields(logrus.Fields{
                         "Error": "not correct resource patter.",
                         "Info:": "make sure that you have '/' for the resource. check https://api-docs.amp.cisco.com/api_resources?api_host=api.eu.amp.cisco.com&amp;api_version=v1",
                 }).WithError(err)
-                return nil, err
+                return 0,nil, err
         }</span>
-        <span class="cov8" title="1">req, err := http.NewRequest(method, url, nil)
+        <span class="cov1" title="1">req, err := http.NewRequest(method, url, nil)
         if err != nil </span><span class="cov0" title="0">{
                 logrus.WithFields(logrus.Fields{
                         "Error": err,
                         "Url":   url,
                 }).Errorf("could not invoke the http request check the Error Message")
-                return nil, err
+                return 0,nil, err
         }</span>
-        <span class="cov8" title="1">r, err := a.Do(req)
+        <span class="cov1" title="1">r, err := a.Do(req)
         if err != nil </span><span class="cov0" title="0">{
                 logrus.WithFields(logrus.Fields{
                         "Error": err,
                 }).Error("could not invoke the http request check the Error Message")
-                return nil, err
+                return r.StatusCode,nil, err
         }</span>
-        <span class="cov8" title="1">defer r.Body.Close()
+        <span class="cov1" title="1">defer r.Body.Close()
 
         body, err := ioutil.ReadAll(r.Body)
         if err != nil </span><span class="cov0" title="0">{
                 logrus.WithFields(logrus.Fields{
                         "Error": err,
                 }).Error("could not read the http response")
-                return nil, err
+                return r.StatusCode,nil, err
         }</span>
-        <span class="cov8" title="1">return body, nil</span>
+        <span class="cov1" title="1">return r.StatusCode,body, nil</span>
 
 }
 </pre>

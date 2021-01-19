@@ -9,7 +9,7 @@ package model
 type BaseMoodle struct {
 	Version string `json:"version"`
 	Data    `json:"data"`
-	Errors  `json:"errors"`
+	Errors []Errors `json:"errors"`
 }
 
 //Data will hold the actual data for individual response
