@@ -4,7 +4,7 @@
 
 ###### Say hi to Kaguya !
 
-###### ![Kaguya](https://dailyanimeart.files.wordpress.com/2014/06/kaguya-ootsutsuki-is-revived1.png)
+###### ![Kaguya](https://github.com/abdelmmu/amp/logo/kaguya.jpg)
 __________________________________________________
 
 for more infomrations about the _AMP_ _API_
