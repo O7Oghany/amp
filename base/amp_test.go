@@ -44,16 +44,16 @@ func TestAMP_GenericReq(t *testing.T) {
 	//not checking for "client_id:api_key" because it's already checked in TestNewAMP Function
 	validmp := NewAMP("client_id:api_key")
 	//giving non valid resource
-	_,_, err := validmp.GenericReq("GET", "computers")
+	_,_, err := validmp.GenericReq("GET", "computers","")
 	if err == nil {
 		t.Errorf("expected error but got nil")
 	} else {
 		t.Logf("success and got Error: %v", err)
 	}
 	//giving valid resource but not valid auth
-	_,res, err := validmp.GenericReq("GET", "/computers")
+	_,res, err := validmp.GenericReq("GET", "/computers","?audit_log_type=test")
 	if err != nil {
-		t.Errorf("expected error but got nil %v", err)
+		t.Errorf("not expected error but got nil %v", err)
 	} else {
 		body := string(res)
 		t.Logf("resp: %v", body)

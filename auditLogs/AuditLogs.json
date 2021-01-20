@@ -2,47 +2,41 @@
   "version": "v1.2.0",
   "metadata": {
     "links": {
-      "self": "https://api.eu.amp.cisco.com/v1/audit_logs",
-      "next": "https://api.eu.amp.cisco.com/v1/audit_logs?offset=500"
+      "self": "https://api.eu.amp.cisco.com/v1/audit_logs?audit_log_id=e773a9eb-296c-40df-98d8-bed46322589d&limit=5",
+      "next": "https://api.eu.amp.cisco.com/v1/audit_logs?audit_log_id=e773a9eb-296c-40df-98d8-bed46322589d&limit=5&offset=5"
     },
     "results": {
-      "total": 3214,
-      "current_item_count": 500,
+      "total": 1014,
+      "current_item_count": 5,
       "index": 0,
-      "items_per_page": 500
+      "items_per_page": 5
     }
   },
   "data": [
     {
-      "event": "destroy",
-      "audit_log_type": "Group",
-      "audit_log_id": "d3dfd982-6542-4a5f-8d39-4131fc3b0a21",
+      "event": "update",
+      "audit_log_type": "ApplicationBlockingList",
+      "audit_log_id": "e773a9eb-296c-40df-98d8-bed46322589d",
       "audit_log_user": "16db5cf986eec6f44422",
-      "created_at": "2020-02-18T09:17:37Z",
+      "created_at": "2020-02-18T09:17:28Z",
       "old_attributes": {
-        "name": "UBVHPWrE",
-        "active": true,
-        "default": false,
-        "ancestry": null
+        "sha": "bbf1b9bdc3033c7d87be3a1688f9e79afbf68dbba648fffc7c78b3f51efa8788"
       },
       "new_attributes": {
-        "name": null,
-        "active": null,
-        "default": null,
-        "ancestry": null
+        "sha": null
       }
     },
     {
-      "event": "create",
-      "audit_log_type": "Group",
-      "audit_log_id": "b72fd5c0-1ec8-4b7a-b5aa-a500e64635f4",
+      "event": "update",
+      "audit_log_type": "ApplicationBlockingList",
+      "audit_log_id": "e773a9eb-296c-40df-98d8-bed46322589d",
       "audit_log_user": "16db5cf986eec6f44422",
-      "created_at": "2020-02-18T09:17:36Z",
+      "created_at": "2020-02-18T09:17:27Z",
       "old_attributes": {
-        "name": null
+        "sha": ""
       },
       "new_attributes": {
-        "name": "aOnRlCTc"
+        "sha": "bbf1b9bdc3033c7d87be3a1688f9e79afbf68dbba648fffc7c78b3f51efa8788"
       }
     }
   ]

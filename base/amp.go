@@ -95,8 +95,8 @@ func (a *AMP) Do(r *http.Request) (*http.Response, error) {
 //
 //
 //returning byte, all sub request can implement encoder
-func (a *AMP) GenericReq(method, res string) ( int, []byte, error) {
-	url := a.BaseURL + res
+func (a *AMP) GenericReq(method, res , params string) ( int, []byte, error) {
+
 	var resource = regexp.MustCompile(validResource)
 	if !resource.MatchString(res) {
 		err := errors.New("not correct resource patter")
@@ -107,6 +107,8 @@ func (a *AMP) GenericReq(method, res string) ( int, []byte, error) {
 		}).WithError(err)
 		return 0,nil, err
 	}
+
+	url := a.BaseURL + res + params
 	req, err := http.NewRequest(method, url, nil)
 	if err != nil {
 		logrus.WithFields(logrus.Fields{

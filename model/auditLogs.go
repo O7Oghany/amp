@@ -13,6 +13,7 @@ type AuditLogs struct {
 	Data ListAuditLogs
 	DataLogByUser ListAuditLogsByUser
 	DataLogByID ListAuditLogsByID
+	DataLogTypes ListAuditLogsTypes
 	AuditLogsError AuditLogsError
 }
 
@@ -60,6 +61,11 @@ type ListAuditLogsByID struct {
 	Data []ListAuditLogsDataByID `json:"data"`
 }
 
+type ListAuditLogsTypes struct {
+	Version  string `json:"version"`
+	Metadata Links `json:"metadata"`
+	Data []ListAuditLogsTypesData `json:"data"`
+}
 //Metadata hold the Links and Results
 type Metadata struct {
 	Links `json:"links"`
@@ -101,7 +107,10 @@ type ListAuditLogsDataByID struct {
 	OldAttributesSha `json:"old_attributes,omitempty"`
 	NewAttributesSha `json:"new_attributes,omitempty"`
 }
-
+type ListAuditLogsTypesData struct {
+	ID string `json:"id"`
+	Name string `json:"name"`
+}
 //OldAttributes holds previous data about the Attributes.
 //if there or nil
 //Attributes can be omitted in some requests.
