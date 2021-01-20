@@ -4,7 +4,7 @@
 
 ###### Say hi to Kaguya !
 
-###### ![Kaguya](https://github.com/abdelmmu/amp/logo/kaguya.jpg)
+###### ![Kaguya](https://raw.githubusercontent.com/abdelmmu/amp/main/logo/kaguya.jpg?token=APC4ZDBL7VU2JFQHJHX5D3TABBGWC)
 __________________________________________________
 
 for more infomrations about the _AMP_ _API_
