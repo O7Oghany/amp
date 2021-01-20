@@ -16,5 +16,5 @@
 
 #the generated HTML report
 #json file for cmake
-*.html
-*.json
+amp_test_report.html
+dockDockBuildParams.json
