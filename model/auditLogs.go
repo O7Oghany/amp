@@ -9,11 +9,11 @@ import "time"
 //for more info about the mode:
 //https://api-docs.amp.cisco.com/api_actions/details?api_action=GET+%2Fv1%2Faudit_logs&api_host=api.eu.amp.cisco.com&api_resource=AuditLog&api_version=v1
 type AuditLogs struct {
-	QueryParams QueryParameters
-	Data ListAuditLogs
-	DataLogByUser ListAuditLogsByUser
-	DataLogByID ListAuditLogsByID
-	DataLogTypes ListAuditLogsTypes
+	QueryParams    AuditLogsQueryParameters
+	Data           ListAuditLogs
+	DataLogByUser  ListAuditLogsByUser
+	DataLogByID    ListAuditLogsByID
+	DataLogTypes   ListAuditLogsTypes
 	AuditLogsError AuditLogsError
 }
 
@@ -22,8 +22,9 @@ type AuditLogsError struct {
 	Data ListAuditLogsData `json:"data"`
 	Errors []Errors `json:"errors"`
 }
-//QueryParameters to filter the request.
-type QueryParameters struct {
+
+//AuditLogsQueryParameters to filter the request.
+type AuditLogsQueryParameters struct {
 	AuditLogID string `json:"audit_log_id"`
 	AuditLogUser string `json:"audit_log_user"`
 	AuditLogType string `json:"audit_log_type"`

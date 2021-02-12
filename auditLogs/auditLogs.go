@@ -12,6 +12,7 @@ import (
 )
 
 //AuditLogs will implement the method to interact with AuditLog endpoint
+//more info https://api-docs.amp.cisco.com/api_resources/AuditLog?api_host=api.eu.amp.cisco.com&api_version=v1
 type AuditLogs struct {
 	Proxy base.AMP
 	Model model.AuditLogs

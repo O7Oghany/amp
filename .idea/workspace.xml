@@ -20,8 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e50c491a-8fb2-4b65-808d-3c9c0485c652" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/model/computer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_18_01_2021_22_25_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_18_01_2021_22_25__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auditLogs/auditLogs.go" beforeDir="false" afterPath="$PROJECT_DIR$/auditLogs/auditLogs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/computer/computer.go" beforeDir="false" afterPath="$PROJECT_DIR$/computer/computer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/auditLogs.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/auditLogs.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +40,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Go File" />
+        <option value="Go Application" />
       </list>
     </option>
   </component>
@@ -56,7 +62,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="DefaultGoTemplateProperty" value="Go Application" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -66,7 +72,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../darkness02" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -77,27 +83,14 @@
       <recent name="C:\workspace\src\github.com\abdelmmu\amp\auditLogs" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.go test github.com/abdelmmu/amp/auditLogs">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestAuditLogs_GetAuditByID in github.com/abdelmmu/amp/auditLogs (4)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.go build github.com/abdelmmu/amp">
+    <configuration name="go build github.com/abdelmmu/amp" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="amp" />
-      <working_directory value="$PROJECT_DIR$/auditLogs" />
-      <framework value="gotest" />
+      <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/abdelmmu/amp/auditLogs" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="github.com/abdelmmu/amp" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestAuditLogs_GetAuditByID\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestAuditLogs_GetAuditByID in github.com/abdelmmu/amp/auditLogs" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -146,10 +139,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Go Test.go test github.com/abdelmmu/amp/auditLogs" />
+        <item itemvalue="Go Test.TestAuditLogs_GetAuditByUser in github.com/abdelmmu/amp/auditLogs" />
         <item itemvalue="Go Test.TestAuditLogs_GetAuditByUser in github.com/abdelmmu/amp/auditLogs (1)" />
         <item itemvalue="Go Test.TestAuditLogs_GetAuditByID in github.com/abdelmmu/amp/auditLogs" />
-        <item itemvalue="Go Test.TestAuditLogs_GetAuditByUser in github.com/abdelmmu/amp/auditLogs" />
-        <item itemvalue="Go Test.TestAuditLogs_GetAuditByID in github.com/abdelmmu/amp/auditLogs (4)" />
+        <item itemvalue="Go Build.go build github.com/abdelmmu/amp" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +154,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611057772720</updated>
-      <workItem from="1611057773778" duration="17268000" />
+      <workItem from="1611057773778" duration="18060000" />
+      <workItem from="1611316539017" duration="2590000" />
+      <workItem from="1612964606628" duration="58000" />
+      <workItem from="1612964729527" duration="1114000" />
     </task>
     <servers />
   </component>
@@ -195,32 +191,40 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="859" y="385" key="#Vim_Emulation/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1610630137492" />
-    <state width="1877" height="269" key="GridCell.Tab.0.bottom" timestamp="1611156347009">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1611157203773">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611157203773" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1611231368081">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611231368081" />
+    <state width="1877" height="269" key="GridCell.Tab.0.bottom" timestamp="1611222424122">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="269" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1611155497927" />
-    <state width="1877" height="269" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611156347009" />
+    <state width="1877" height="269" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611222424122" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.10.1920.1040@0.0.1920.1040" timestamp="1611133341829" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.10.1920.1040@1920.10.1920.1040" timestamp="1611044664366" />
-    <state width="1877" height="269" key="GridCell.Tab.0.center" timestamp="1611156347009">
+    <state width="1877" height="269" key="GridCell.Tab.0.center" timestamp="1611222424122">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="269" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1611155497927" />
-    <state width="1877" height="269" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611156347009" />
+    <state width="1877" height="269" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611222424122" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.10.1920.1040@0.0.1920.1040" timestamp="1611133341829" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.10.1920.1040@1920.10.1920.1040" timestamp="1611044664366" />
-    <state width="1877" height="269" key="GridCell.Tab.0.left" timestamp="1611156347008">
+    <state width="1877" height="269" key="GridCell.Tab.0.left" timestamp="1611222424121">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="269" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1611155497927" />
-    <state width="1877" height="269" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611156347008" />
+    <state width="1877" height="269" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611222424121" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.10.1920.1040@0.0.1920.1040" timestamp="1611133341829" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.10.1920.1040@1920.10.1920.1040" timestamp="1611044664366" />
-    <state width="1877" height="269" key="GridCell.Tab.0.right" timestamp="1611156347009">
+    <state width="1877" height="269" key="GridCell.Tab.0.right" timestamp="1611222424122">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="269" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1611155497927" />
-    <state width="1877" height="269" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611156347009" />
+    <state width="1877" height="269" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611222424122" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.10.1920.1040@0.0.1920.1040" timestamp="1611133341829" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.10.1920.1040@1920.10.1920.1040" timestamp="1611044664366" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1610628704845">
