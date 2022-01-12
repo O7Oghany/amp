@@ -2,9 +2,6 @@
 
 #### **SDK** to interact with *AMP* API 
 
-###### Say hi to Kaguya !
-
-###### ![Kaguya](will be kaguya Bild)
 __________________________________________________
 
 for more infomrations about the _AMP_ _API_
